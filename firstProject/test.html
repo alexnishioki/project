@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <link rel="stylesheet" href="project/firstproject.css">
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1300" height="700"></canvas>
+
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+
+
+    context.beginPath()
+    context.moveTo(1,1)
+    context.lineTo(1300,20)
+    context.lineTo(1,30)
+    context.stroke()
+    context.fill()
+    context.beginPath()
+    context.moveTo(1200,50)
+    context.lineTo(1,60)
+    context.lineTo(1,90)
+    context.lineTo(1200,50)
+    context.stroke()
+    context.fill()
+    context.beginPath()
+    context.moveTo(60,140)
+    context.lineTo(1300,80)
+    context.lineTo(60,170)
+    context.lineTo(60,140)
+    context.stroke()
+    context.fill()
+    context.beginPath()
+    context.moveTo(1,230)
+    context.lineTo(1200,130)
+    context.lineTo(1,265)
+    context.stroke()
+    context.fill()
+    context.beginPath()
+    context.moveTo(1300,160)
+    context.lineTo(70,320)
+    context.lineTo(1300,200)
+    context.fill()
+    context.stroke()
+    context.beginPath()
+    context.moveTo(1,380)
+    context.lineTo(1200,270)
+    context.lineTo(1,420)
+    context.fill()
+    context.stroke()
+    context.beginPath()
+    context.moveTo(70,500)
+    context.lineTo(1300,320)
+    context.lineTo(70,540)
+    context.lineTo(70,500)
+    context.stroke()
+    context.fill()
+    context.beginPath()
+    context.moveTo(1,620)
+    context.lineTo(1200,400)
+    context.lineTo(1,660)
+    context.fill()
+    context.stroke()
+    context.beginPath()
+    context.moveTo(1,800)
+    context.lineTo(1300,450)
+    context.lineTo(1300,700)
+    context.lineTo(700,1300)
+    context.fill()
+    context.stroke()
+
+    context.beginPath();
+      context.arc(40,45,5,0,2*Math.PI);
+      context.stroke()
+      context.fillStyle = 'blue'
+      context.fill()
+      context.beginPath();
+      context.arc(1250,45,4,0,2*Math.PI);
+      context.stroke()
+      context.fillStyle = 'red'
+      context.fill()
+      context.beginPath();
+      context.arc(41,530,4,0,2*Math.PI);
+      context.stroke()
+      context.fillStyle = 'red'
+      context.fill()
+      context.beginPath();
+      context.arc(37,150,4,0,2*Math.PI);
+      context.stroke()
+      context.fillStyle = 'red'
+      context.fill()
+      context.beginPath();
+      context.arc(1250,130,4,0,2*Math.PI);
+      context.stroke()
+      context.strokeStyle = 'red'
+      context.fill()
+      context.beginPath();
+      context.arc(37,350,4,0,2*Math.PI);
+      context.stroke()
+      context.strokeStyle = 'red'
+      context.fill()
+    </script>
+  </body>
+</html>   
