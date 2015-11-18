@@ -6,7 +6,7 @@ var Entity = function(moveR,moveD,size,cutE) {
 
 }
 
-Entity.prototype.place = function() {
+Entity.prototype.draw = function() {
 	if(canvas.getContext){
     var ctx = canvas.getContext('2d')
     ctx.beginPath()
