@@ -26,4 +26,4 @@ Triangle.prototype.draw = function(canvas) {
      ctx.stroke()
     
   }
-}
+} 
