@@ -4,7 +4,7 @@ var MainGuy = function(x,y,size,color) {
 	this.y = y
 	this.size = size
 	this.color = color
-	
+	this.vs = [[x-size,y-size],[x+size,y-size],[x+size,y+size],[x-size,y+size]]
 
 }
 
@@ -17,33 +17,54 @@ MainGuy.prototype.draw = function(canvas) {
 	      ctx.fill();
 	      ctx.lineWidth = 1;
 	      ctx.stroke();
+	     
 	}
 
 }
 
-MainGuy.prototype.move = function(direction) {
+MainGuy.prototype.move = function(direction,board) {
+	console.log(direction)
+	console.log(board)
+	var proposedX = this.x
+	var proposedY = this.y
+
 
 	if(direction === 'left') {
-		this.x -= 8
-		//add event listener?
+		proposedX -= 2
 	} else if(direction === 'right') {
-		this.x += 8
+		proposedX += 2
 	} else if (direction === 'up') {
-		this.y += 8
+		proposedY -= 2
 	} else if (direction === 'down') {
-		this.y -= 8
-	}
+		proposedY += 2
+	} 
+
+	if(!board.collisionDetect(proposedX,proposedY) && !board.borderDetect(proposedX,proposedY)) {
+		this.x = proposedX
+		this.y = proposedY
+	} 
 }
 
 
 
 
 
-canvasRef.addEventListener('keypress', function(event) {
-	if(event.keycode === 37) {
-		MainGuy.move
-	}
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
