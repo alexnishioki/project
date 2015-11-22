@@ -34,13 +34,13 @@
     //var newFallingRocks5 = new FallingRocks(103,-2500,500,'black')
     //entities.push(newFallingRocks5)
     
-    //103-left
     
-
+    
+    //stuck points: x=1219-1228, y=15-24
 
 
     //hero
-    var newMainGuy = new MainGuy(1224,10,5,'black')
+    var newMainGuy = new MainGuy(1224,32,7,'black')
     entities.push(newMainGuy);
     console.log(newMainGuy)
     //other guy
@@ -81,10 +81,10 @@ document.body.addEventListener('keydown', function(event) {
 
 
 
-//setInterval(function() {
-//  newMainGuy.move('down',gameBoard) 
-//  gameBoard.draw()
-//},150)
+setInterval(function() {
+  newMainGuy.move('down',gameBoard) 
+  gameBoard.draw()
+},600)
 //
 //setInterval(function() {
 //  newFallingRocks.move('down',gameBoard)
