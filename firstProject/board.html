@@ -3,122 +3,20 @@
   <head>
   </head>
   <body>
+  <div id="help">HELP!</div>
   <div id="gameBoard"></div>
+  <div id="timer"></div>
+  <script type="text/javascript" src="javascript/timer.js"></script>
+   <script type='text/javascript'>countDown(160,"timer")</script>
    <script type="text/javascript" src="javascript/triangle.js"></script>
    <script type="text/javascript" src="javascript/board.js"></script>
    <script type="text/javascript" src="javascript/MainGuy.js"></script>
-   <script type="text/javascript" src="javascript/items.js"></script>
-   <script type="text/javascript">
-    var entities = []
-    //board triangles
-    entities.push(new Triangle(1,5,1200,12,30,80,0,0));
-    entities.push(new Triangle(80,110,1300,40,1200,160,80,110));
-    entities.push(new Triangle(40,250,1200,200,1,140,40,250));
-    entities.push(new Triangle(50,290,1300,230,1200,350,55,290));
-    entities.push(new Triangle(50,420,1200,400,1,320,40,400));
-    entities.push(new Triangle(50,450,1300,430,1200,560,55,450));
-    entities.push(new Triangle(50,580,1200,600,1,480,10,500));
-    entities.push(new Triangle(1,800,1200,620,1200,620,40,605));
-    entities.push(new Triangle(600,750,1300,640,1200,840,40,605));
-
-
-    //enemy
-    //var newFallingRocks = new FallingRocks(103,-500,400,'black')
-    //entities.push(newFallingRocks)
-    //var newFallingRocks2 = new FallingRocks(1200,-1000,500,'black')
-    //entities.push(newFallingRocks2)
-    //var newFallingRocks3 = new FallingRocks(103,-1700,500,'black')
-    //entities.push(newFallingRocks3)
-    //var newFallingRocks4 = new FallingRocks(1203,-2200,500,'black')
-    //entities.push(newFallingRocks4)
-    //var newFallingRocks5 = new FallingRocks(103,-2500,500,'black')
-    //entities.push(newFallingRocks5)
-    
-    
-    
-    //stuck points: x=1219-1228, y=15-24
-
-
-    //hero
-    var newMainGuy = new MainGuy(1224,32,7,'black')
-    entities.push(newMainGuy);
-    console.log(newMainGuy)
-    //other guy
-    //var newGuyTwo = new GuyTwo(1200,34,8,'black')
-    //entities.push(newGuyTwo);
-
-
-
-//listen for keypress on canvas
-//based on what key is pressed call the move method
-    var gameBoard = new Board(entities)
-    var game = document.getElementById("gameBoard")
-    game.appendChild(gameBoard.canvas)
-    gameBoard.draw()
-
-//MainGuy movement
-document.body.addEventListener('keydown', function(event) {
-  console.log("hello")
-  if(event.keyCode === 37 || event.keyCode === 65) {
-    newMainGuy.move('left',gameBoard)
-  }
-  if(event.keyCode === 39 || event.keyCode === 68) {
-    newMainGuy.move('right',gameBoard)
-  }
-  if(event.keyCode === 40 || event.keyCode === 83) {
-    newMainGuy.move('up',gameBoard)
-  }
-  if(event.keyCode === 38 || event.keyCode === 87) {
-    newMainGuy.move('down',gameBoard)
-  }
-  gameBoard.draw()
-})
-
-//main event loop
-
-//enemy-fire
-
-
-
-
-setInterval(function() {
-  newMainGuy.move('down',gameBoard) 
-  gameBoard.draw()
-},600)
-//
-//setInterval(function() {
-//  newFallingRocks.move('down',gameBoard)
-//  gameBoard.draw()
-//},1)
-//
-//setInterval(function() {
-//  newFallingRocks2.move('down',gameBoard)
-//  gameBoard.draw()
-//},2)
-//setInterval(function() {
-//  newFallingRocks3.move('down',gameBoard)
-//  gameBoard.draw()
-//},2)
-//setInterval(function() {
-//  newFallingRocks4.move('down',gameBoard)
-//  gameBoard.draw()
-//},3)
-//setInterval(function() {
-//  newFallingRocks5.move('down',gameBoard)
-//  gameBoard.draw()
-//},5)
-
-
-
-
-
-
-
-
-
-    
-
-
-   </script>   
+   <script type="text/javascript" src="javascript/background.js"></script>
+   <script type="text/javascript" src="javascript/board-points.js"></script>
+   <script type="text/javascript" src="javascript/GuyTwo.js"></script>
+   <script type="text/javascript" src="javascript/main-page.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/board.css">
+   <link href="lose-screen.html">
+   <link href="win-screen.html">
   </body>
 </html>      
