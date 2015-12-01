@@ -1,0 +1,21 @@
+.game-link{
+	display:block;
+	font-family:courier;
+	height:60px;
+	width:200px;
+	font-size:170px;
+	position:fixed;
+	float:top;
+	top:10px;
+	left:10px;
+	margin-bottom:100px;
+	font-style:bold;
+	background-color:white;
+	border:none;
+	padding:none;
+	opacity:0;
+
+}
+body{
+	background-color:black;
+}

@@ -1,24 +1,11 @@
-//for vs, include the board and exclude entities (aka. Triangles)
-var MainGuy = function(x,y,size,color,vs) {
+var MainGuy = function(x,y,size,color,vs,vs2) {
 	this.x = x
 	this.y = y
 	this.size = size
 	this.color = color
-	//I did not have vs as a parameter before today
-	//this.vs = [[x-size,y-size],[x+size,y-size],[x+size,y+size],[x-size,y+size]]
-	//this.vs = [[x-400,y-40],[x+size,y-size],[x+size,y+size],[x-400,y+40]]
-	//this.vs = [[x-900,y-45],[x+size,y-size],[x+size,y+size],[x-900,y+35]]
-	//this.vs = [[x-1160,y-55],[x+size,y-size],[x+size,y+size],[x-1160,y+70]] ||
 	this.vs = [[x-1150,y-55],[x+size,y-size],[x+size,y+size],[x-1150,y+70]]
+	this.vs2 = [[x-size,y-size],[x+size,y-size],[x+size,y+size],[x-size,y+size]]
 	}
-		
-/*MainGuy.prototype.changeMove = function() {
-					this.vs = [[x-1200,y-55],[x+2000,y-200],[x+2000,y+2000],[x-1200,y+70]]
-				}
-	*/		
-			  
-
-
 
 MainGuy.prototype.draw = function(canvas) {
 	if(canvas.getContext){
@@ -33,32 +20,6 @@ MainGuy.prototype.draw = function(canvas) {
 	}
 
 }
-
-
-
-/*MainGuy.prototype.move = function(direction,board) {
-	console.log(direction)
-	console.log(board)
-	var proposedX = this.x
-	var proposedY = this.y
-
-
-	if(direction === 'left') {
-		proposedX -= 1
-	} else if(direction === 'right') {
-		proposedX += 1
-	} else if (direction === 'up') {
-		proposedY -= 1
-	} else if (direction === 'down') {
-		proposedY += 1
-	} 
-
-	if(!board.collisionDetect(proposedX,proposedY) && !board.borderDetect(proposedX,proposedY)) {
-		this.x = proposedX
-		this.y = proposedY
-	} 
-}*/
-
 
 MainGuy.prototype.move = function(direction,board) {
 	console.log(direction)
@@ -81,37 +42,11 @@ MainGuy.prototype.move = function(direction,board) {
 		this.x = proposedX
 		this.y = proposedY
 	} 
+
+	if(this.x >= 1205 && this.y >= 650) {
+		window.location = "win-screen.html"
+	}
 }
-//stuck points: x=1219-1228, y=15-24
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

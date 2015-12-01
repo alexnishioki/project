@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+  </div>
+  <div id="gameBoard"></div>
+   <script type="text/javascript" src="javascript/triangle.js"></script>
+   <script type="text/javascript" src="javascript/board.js"></script>
+   <script type="text/javascript" src="javascript/MainGuy.js"></script>
+   <script type="text/javascript" src="javascript/items.js"></script>
+   <link rel="stylesheet" type="text/css" href="win-screen.css">
+   <link href="win.html">
+
+   <script type="text/javascript">
+   var Triangle2 = function(x1,y1,x2,y2,x3,y3,x4,y4,y5,y6,vs) {
+  this.x1 = x1
+  this.y1 = y1
+  this.x2 = x2
+  this.y2 = y2
+  this.x3 = x3
+  this.y3 = y3
+  this.x4 = x4
+  this.y4 = y4
+  this.y5 = y5
+  this.y6 = y6
+  this.vs = [[x1,y1],[x2,y2],[x3,y3],[x4,y4]]
+
+}
+Triangle2.prototype.draw = function(canvas) {
+  if(canvas.getContext){
+    var ctx = canvas.getContext('2d')
+    ctx.beginPath()
+    ctx.moveTo(this.x1,this.y1)
+    ctx.lineTo(this.x2,this.y2)
+    ctx.lineTo(this.x3,this.y3)
+    ctx.lineTo(this.x4,this.y4)
+    ctx.fillStyle = 'black';
+     ctx.shadowColor = '#999';
+     ctx.shadowBlur = 5;
+     ctx.shadowOffsetX = 15;
+     ctx.shadowOffsetY = 15;
+     ctx.fill();
+     ctx.stroke()
+    
+  }
+} 
+    var entities = []
+    //board triangles "You"
+    entities.push(new Triangle2(1,10,20,12,46,80,0,0));
+    entities.push(new Triangle2(90,10,60,45,5,150,50,80));
+    //entities.push(new Triangle2(150,120,120,45,200,20,220,100,200))
+    entities.push(new Triangle2(290,120,260,45,300,20,260,100,200))
+    entities.push(new Triangle2(280,110,325,80,350,20,340,100,250))
+    //board triangles "Win"
+    //entities.push(new Triangle2(520,25,450,80,460,20,430,100,150))
+    
+    entities.push(new Triangle2(540,6,510,100,440,3,440,100,150,5))
+    entities.push(new Triangle2(585,6,585,0,570,0,560,100,230,5))
+    entities.push(new Triangle2(665,6,655,0,660,0,600,100,230,5))
+    entities.push(new Triangle2(665,6,665,0,680,0,660,100,250,5))
+    entities.push(new Triangle2(725,6,705,0,710,0,660,100,230,5))
+
+    //hero
+    var newMainGuy = new MainGuy(174,10,50,'black')
+    entities.push(newMainGuy);
+    console.log(newMainGuy)
+    //other guy
+    //var newGuyTwo = new GuyTwo(240,140,8,'black')
+    //entities.push(newGuyTwo);
+
+
+
+//listen for keypress on canvas
+//based on what key is pressed call the move method
+    var gameBoard = new Board(entities)
+    var game = document.getElementById("gameBoard")
+    game.appendChild(gameBoard.canvas)
+    gameBoard.draw()
+
+//MainGuy movement
+document.body.addEventListener('keydown', function(event) {
+  console.log("hello")
+  if(event.keyCode === 37 || event.keyCode === 65) {
+    newMainGuy.move('left',gameBoard)
+  }
+  if(event.keyCode === 39 || event.keyCode === 68) {
+    newMainGuy.move('right',gameBoard)
+  }
+  if(event.keyCode === 40 || event.keyCode === 83) {
+    newMainGuy.move('up',gameBoard)
+  }
+  if(event.keyCode === 38 || event.keyCode === 87) {
+    newMainGuy.move('down',gameBoard)
+  }
+  gameBoard.draw()
+})
+
+document.body.addEventListener('keydown', function(event) {
+  if(event.keyCode === 76) {
+    GuyTwo.move('left',gameBoard)
+  }
+  if(event.keyCode === 74) {
+    GuyTwo.move('right',gameBoard)
+  }
+  if(event.keyCode === 73) {
+    GuyTwo.move('up',gameBoard)
+  }
+  if(event.keyCode === 75) {
+    GuyTwo.move('down',gameBoard)
+  }
+  gameBoard.draw()
+})
+
+
+
+setInterval(function() {
+  newMainGuy.move('down',gameBoard) 
+  gameBoard.draw()
+},50)
+
+
+
+
+   </script>   
+  </body>
+</html>      
